@@ -23,6 +23,9 @@ import {
   UncontrolledTooltip
 } from "reactstrap";
 
+import App  from "@/pages/components/Conn/config"
+
+
 class DemoNavbar extends React.Component {
   componentDidMount() {
     let headroom = new Headroom(document.getElementById("navbar-main"));
@@ -182,6 +185,44 @@ class DemoNavbar extends React.Component {
                       </DropdownItem>
                     </DropdownMenu>
                   </UncontrolledDropdown>
+
+                  <UncontrolledDropdown nav>
+                    <DropdownToggle nav>
+                      <i className="ni ni-collection d-lg-none mr-1" />
+                      <span className="nav-link-inner--text">产品列表</span>
+                    </DropdownToggle>
+                    <DropdownMenu>
+                      <DropdownItem to="/landing-page" tag={Link}>
+                        产品
+                      </DropdownItem>
+                      <DropdownItem to="/profile-page" tag={Link}>
+                        资产
+                      </DropdownItem>
+                      <DropdownItem to="/login-page" tag={Link}>
+                        Login
+                      </DropdownItem>
+                      <DropdownItem to="/register-page" tag={Link}>
+                        Register
+                      </DropdownItem>
+                    </DropdownMenu>
+                  </UncontrolledDropdown>
+
+
+                  <UncontrolledDropdown nav>
+                    <DropdownToggle nav>
+                      <i className="ni ni-collection d-lg-none mr-1" />
+                      <span className="nav-link-inner--text"> 连接钱包  </span>
+                    </DropdownToggle>
+                    <DropdownMenu>
+                     <App/>
+                   
+                    </DropdownMenu>
+                  </UncontrolledDropdown>
+
+
+
+
+
                 </Nav>
 
 
