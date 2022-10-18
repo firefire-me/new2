@@ -22,7 +22,7 @@ const ProductMain = (props: Props) => {
             <ul>
                 {
                     props.product.map(item => (
-                        <li  onClick={() => history.push(`details/?id=${item.id}`)}>
+                        <li  onClick={() => history.push(`/details/?id=${item.id}`)}>
                     <a href="">
                         <div style={{backgroundColor: item.bgc}}></div>
                         <h3>{item.title}</h3>

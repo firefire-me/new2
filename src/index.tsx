@@ -15,7 +15,7 @@ import Register from "./views/examples/Register.js";
 import Error from "./pages/error";
 import Products from "@/pages/Layout/Product/index";
 import Profolio from "@/pages/Layout/Protfolio/index";
-
+import Details  from "@/pages/Layout/Product/components/Details";
 
 
 
@@ -49,8 +49,6 @@ export default function Indexin(){
         render={(props) => <Register {...props} />}
       />
 
-{/* { path: '/products', component: '@/pages/Layout/Product'     },
-    { path: '/protfolio', component: '@/pages/Layout/Protfolio'     }, */}
 
       <Route
         path="/products"
@@ -62,6 +60,14 @@ export default function Indexin(){
         exact
         render={(props) => <Profolio {...props} />}
       />
+
+      <Route
+        path="/details"
+        exact
+        render={(props) => <Details {...props} />}
+      />
+  
+
 
 
       <Route

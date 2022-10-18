@@ -8,8 +8,7 @@ export default defineConfig({
   routes: [
 
     { path: '/error', component: '@/pages/error'     },
-
-
+ 
   
     { path: '/', component: '@/index',
   
