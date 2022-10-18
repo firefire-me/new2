@@ -12,6 +12,11 @@ import Landing from "./views/examples/Landing.js";
 import Login from "./views/examples/Login.js";
 import Profile from "./views/examples/Profile.js";
 import Register from "./views/examples/Register.js";
+import Error from "./pages/error";
+import Products from "@/pages/Layout/Product/index";
+import Profolio from "@/pages/Layout/Protfolio/index";
+
+
 
 
 export default function Indexin(){
@@ -43,6 +48,31 @@ export default function Indexin(){
         exact
         render={(props) => <Register {...props} />}
       />
+
+{/* { path: '/products', component: '@/pages/Layout/Product'     },
+    { path: '/protfolio', component: '@/pages/Layout/Protfolio'     }, */}
+
+      <Route
+        path="/products"
+        exact
+        render={(props) => <Products {...props} />}
+      />
+      <Route
+        path="/protfolio"
+        exact
+        render={(props) => <Profolio {...props} />}
+      />
+
+
+      <Route
+        path="/*"
+        exact
+        render={(props) => <Error {...props} />}
+      />
+
+
+
+
 
       {/* <Redirect to="/" /> */}
       

@@ -6,7 +6,12 @@ import Box from '@mui/material/Box';
 import { a11yProps } from '@/pages/components/Panel/A11yProps';
 import { TabPanel } from '@/pages/components/Panel/TabPanel';
 import ProductMain from './components/Main';
-import {hot, market, interest, option, reunite} from '@/utils/data'
+import {hot, market, interest, option, reunite} from '@/utils/data';
+
+import DemoNavbar from '@/components/Navbars/DemoNavbar.js';
+import SimpleFooter from '@/components/Footers/SimpleFooter.js';
+
+
 
 const Product = () => {
     const [value, setValue] = React.useState(0);
@@ -15,6 +20,24 @@ const Product = () => {
     setValue(newValue);
   };
     return (
+      <>
+
+      <DemoNavbar/>
+
+      <main > 
+      <section className="section section-shaped section-lg">
+            <div className="shape shape-style-1 bg-gradient-default">
+              <span />
+              <span />
+              <span />
+              <span />
+              <span />
+              <span />
+              <span />
+              <span />
+            </div>
+      </section> 
+
         <div className="product">
             <Box sx={{ width: '100%' }}>
       <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
@@ -44,6 +67,13 @@ const Product = () => {
     </Box>
 
         </div>
+
+        </main>
+
+        <SimpleFooter/>
+
+        </>
+
     )
 }
 
