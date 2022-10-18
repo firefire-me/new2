@@ -1,8 +1,7 @@
-
-import React from "react";
-import { Link } from "react-router-dom";
+import React from 'react';
+import { Link } from 'react-router-dom';
 // JavaScript plugin that hides or shows a component based on your scroll
-import Headroom from "headroom.js";
+import Headroom from 'headroom.js';
 // reactstrap components
 import {
   Button,
@@ -20,32 +19,48 @@ import {
   Container,
   Row,
   Col,
-  UncontrolledTooltip
-} from "reactstrap";
+  UncontrolledTooltip,
+} from 'reactstrap';
 
-import App  from "@/pages/components/Conn/config"
+import App from '@/pages/components/Conn/config';
 
+import Wallet from '@/pages/Layout/Wallet/index';
 
 class DemoNavbar extends React.Component {
   componentDidMount() {
-    let headroom = new Headroom(document.getElementById("navbar-main"));
+    let headroom = new Headroom(document.getElementById('navbar-main'));
     // initialise
     headroom.init();
   }
   state = {
-    collapseClasses: "",
-    collapseOpen: false
+    collapseClasses: '',
+    collapseOpen: false,
+    isWalletOpen: false,
   };
 
   onExiting = () => {
     this.setState({
-      collapseClasses: "collapsing-out"
+      collapseClasses: 'collapsing-out',
     });
   };
 
   onExited = () => {
     this.setState({
-      collapseClasses: ""
+      collapseClasses: '',
+    });
+  };
+
+  // 弹出钱包连接界面
+  showWallet = () => {
+    this.setState({
+      isWalletOpen: true,
+    });
+
+    console.log(this.state.isWalletOpen);
+  };
+  handleCancel = () => {
+    this.setState({
+      isWalletOpen: false,
     });
   };
 
@@ -62,7 +77,7 @@ class DemoNavbar extends React.Component {
               <NavbarBrand className="mr-lg-5" to="/" tag={Link}>
                 <img
                   alt="..."
-                  src={require("@/assets/img/brand/argon-react-white.png")}
+                  src={require('@/assets/img/brand/argon-react-white.png')}
                 />
               </NavbarBrand>
               <button className="navbar-toggler" id="navbar_global">
@@ -81,7 +96,7 @@ class DemoNavbar extends React.Component {
                       <Link to="/">
                         <img
                           alt="..."
-                          src={require("@/assets/img/brand/argon-react.png")}
+                          src={require('@/assets/img/brand/argon-react.png')}
                         />
                       </Link>
                     </Col>
@@ -96,12 +111,13 @@ class DemoNavbar extends React.Component {
 
                 {/* 第一个列表 */}
 
-
                 <Nav className="navbar-nav-hover align-items-lg-center" navbar>
                   <UncontrolledDropdown nav>
                     <DropdownToggle nav>
                       <i className="ni ni-ui-04 d-lg-none mr-1" />
-                      <span className="nav-link-inner--text">Components - 第一个</span>
+                      <span className="nav-link-inner--text">
+                        Components - 第一个
+                      </span>
                     </DropdownToggle>
                     <DropdownMenu className="dropdown-menu-xl">
                       <div className="dropdown-menu-inner">
@@ -160,7 +176,6 @@ class DemoNavbar extends React.Component {
                               offered in the Free version.
                             </p>
                           </Media>
-
                         </Media>
                       </div>
                     </DropdownMenu>
@@ -206,26 +221,29 @@ class DemoNavbar extends React.Component {
                       </DropdownItem>
                     </DropdownMenu>
                   </UncontrolledDropdown>
-
-
-                  <UncontrolledDropdown nav>
-                    <DropdownToggle nav>
-                      <i className="ni ni-collection d-lg-none mr-1" />
-                      <span className="nav-link-inner--text"> 连接钱包  </span>
-                    </DropdownToggle>
-                    <DropdownMenu>
-                     <App/>
-                   
-                    </DropdownMenu>
-                  </UncontrolledDropdown>
-
-
+                </Nav>
+                <Nav>
+                  <NavItem className="d-none d-lg-block ml-lg-4">
+                    <Button
+                      className="btn-neutral btn-icon"
+                      color="default"
+                      onClick={this.showWallet}
+                      target="_blank"
+                    >
+                      <span className="nav-link-inner--text ml-1">
+                        连接钱包
+                      </span>
+                    </Button>
+                  </NavItem>
                 </Nav>
 
+                <Wallet
+                  isModalOpen={this.state.isWalletOpen}
+                  handleCancel={this.handleCancel}
+                ></Wallet>
 
-                
                 <Nav className="align-items-lg-center ml-lg-auto" navbar>
-                  <NavItem>
+                  {/* <NavItem>
                     <NavLink
                       className="nav-link-icon"
                       href="https://www.facebook.com/creativetim"
@@ -240,7 +258,8 @@ class DemoNavbar extends React.Component {
                     <UncontrolledTooltip delay={0} target="tooltip333589074">
                       Like us on Facebook
                     </UncontrolledTooltip>
-                  </NavItem>
+                  </NavItem> */}
+
                   <NavItem>
                     <NavLink
                       className="nav-link-icon"
